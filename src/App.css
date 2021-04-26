@@ -5,6 +5,13 @@
   box-sizing: border-box;
   font-family: 'Bree Serif', serif;
 }
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
 .black-nav{
   background-color: #000;
   width: 100%;
@@ -15,7 +22,8 @@
   justify-content: center;
 }
 .post-wrapper{
-  margin: 15px;
+  width: 100%;
+  padding: 15px;
 }
 .post{
   text-align: left;
@@ -30,4 +38,28 @@
 }
 .post__date{
   opacity: .7;
+}
+.modal{
+  margin-top: 20px;
+  width: 100%;
+  height: 500px;
+  background-color: rgba(150, 150, 150, 0.4);
+  /* box-shadow: 1px 1px 23px 0px rgba(150, 150, 150, 0.75); */
+  display: flex;
+  flex-direction: column;
+  padding: 15px 30px;
+}
+.modal__title{
+  font-size: 30px;
+  margin-right: 20px;
+}
+.modal__date{
+  opacity: .7;
+}
+.modal__info{
+  margin-bottom: 10px;
+  text-align: center;
+}
+.modal__content{
+  font-size: 18px;
 }
