@@ -45,10 +45,10 @@ function Modal(){ //component! very useful and 보기좋음! 관리도 편함!
   return (
       <div className="modal">
         <div className="modal__info">
-        <span className="modal__title"> title </span>
-        <span className="modal__date"> date </span>
+        <span className="modal__title"> 자야겠당 </span>
+        <span className="modal__date"> 5/3 </span>
         </div>
-        <span className="modal__content"> content </span>
+        <span className="modal__content"> 하라야 어쩌자고 니 인생을 시궁창에 몰아넣니 거기서 나와 당장 </span>
       </div>
   );//state값을 여기에 쓰진 못하나?
   //상위 component에서 만든 state를 쓰려면 props 문법을 써야함.
