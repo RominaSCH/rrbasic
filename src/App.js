@@ -5,6 +5,7 @@ function App() {
   let [title, mTitle] = useState(["Should I buy more classes?","React Class Notes",  "My birthday"]);
   let [date, mDate] = useState(["today","4/26",  "4/13"]);
   let [favNum, clicked] = useState(0); //clicked 는 함수! 앞 state 변수 변경할 때 사용
+  let [modal, modal_modify] = useState(false);
   return (
     <div className="App">
       <div className="black-nav">
@@ -31,7 +32,10 @@ function App() {
         </div>
       </div>
 
-      <Modal />
+      <button onClick={ () => { modal_modify(!modal) }}>Modal</button>
+      { //난 modal에 0값 주고 클릭시 +1씩 더해서 modal%2 로 나머지 값이 0과 1일때로 나누어 모달창 열고닫음
+        modal === true ? <Modal /> : null
+      }
       
     </div>
   );
