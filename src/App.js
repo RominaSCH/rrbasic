@@ -4,8 +4,14 @@ import './App.css';
 function App() {
   let [title, mTitle] = useState(["Should I buy more classes?","React Class Notes",  "My birthday"]);
   let [date, mDate] = useState(["today","4/26",  "4/13"]);
+  let [content, mContent] = useState([
+    "You bought Codding apple's class, right? Then you are satisfied?",
+    "State, Hooks, class, props... Should practice more and more",
+    "Is over, k380 is Mine! And DY's first Birthday is over too."
+  ])
   // let [favNum, clicked] = useState(0); //clicked 는 함수! 앞 state 변수 변경할 때 사용
   let [modal, modal_modify] = useState(false);
+  let [postNum, mpostNum] = useState(0);
 
 
   return (
@@ -16,33 +22,44 @@ function App() {
   
       <div className="post-wrapper">
         {
-          title.map( t => {return (
-            <div className="post">
-              <span className="post__title"> {t} </span>
-              <span className="post__date"> 5/4</span> 
+          title.map(function(title, i){
+            return (
+            <div className="post" onClick={ () => { 
+              mpostNum(i)
+              modal_modify(true) }}>
+              <span className="post__title">{title}</span>
+              <span className="post__date">{date[i]}</span> 
             </div>
             );} )
         }
-  <button onClick={ () => { modal_modify(!modal)}}>Modal</button>
+
    {
      modal === true
-     ? <Modal title={title} /> // <Component_name 자식컴포넌트에서 사용할 이름 = 전송할 state />
+     ? <Modal title={title} postNum={postNum} date={date} mModal={modal_modify} content={content} /> // <Component_name 자식컴포넌트에서 사용할 이름 = 전송할 state />
      : null
    }
+
       
-    </div>
+      </div>
     </div>
   );
 }
 
 function Modal(props){ //component! very useful and 보기좋음! 관리도 편함!
   return (
-      <div className="modal">
-        <div className="modal__info">
-        <span className="modal__title"> {props.title[0]} </span>
-        <span className="modal__date"> 5/3 </span>
+      <div className="modal_bg">
+        <div className="modal_box">
+          <div className="modal__info">
+            <span className="modal__title"> {props.title[props.postNum]} </span>
+            <span className="modal__date"> {props.date[props.postNum]} </span>
+          </div>
+          <span className="modal__content"> {props.content[props.postNum]} </span>
+          <div className="modal_close" onClick={ () => { props.mModal(false)} }>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </div>
         </div>
-        <span className="modal__content"> 하라야 어쩌자고 니 인생을 시궁창에 몰아넣니 거기서 나와 당장 </span>
       </div>
   );//state값을 여기에 쓰진 못하나?
   //상위 component에서 만든 state를 쓰려면 props 문법을 써야함.
