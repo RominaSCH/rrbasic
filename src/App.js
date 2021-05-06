@@ -12,7 +12,9 @@ function App() {
   // let [favNum, clicked] = useState(0); //clicked 는 함수! 앞 state 변수 변경할 때 사용
   let [modal, modal_modify] = useState(false);
   let [postNum, mpostNum] = useState(0);
-
+  let [submit, mSubmit] = useState("");
+  let [submitContent, mSubmitContent] = useState("");
+  var posts = [];
 
   return (
     <div className="App">
@@ -24,7 +26,7 @@ function App() {
         {
           title.map(function(title, i){
             return (
-            <div className="post" onClick={ () => { 
+            <div className="post" key={i} onClick={ () => { 
               mpostNum(i)
               modal_modify(true) }}>
               <span className="post__title">{title}</span>
@@ -32,6 +34,19 @@ function App() {
             </div>
             );} )
         }
+        <div className="submit-box">
+          <input className="submitTitle" type="text" placeholder="title" onChange={ (e) => { mSubmit(e.target.value) }} />
+          <textarea className="submitContent" type="text" placeholder="Content" onChange={ (e) => { mSubmitContent(e.target.value) }} />
+          <button onClick={ () => {
+            posts = [submit ,...title];
+            mTitle(posts);
+            posts = ["now", ...date];
+            mDate(posts);
+            posts = [submitContent, ...content];
+            mContent(posts);
+            //input과 textarea 에 있는 value값 초기화하는건 어떻게?
+          }}>Upload</button>
+         </div>
 
    {
      modal === true
