@@ -3,7 +3,7 @@ import './App.css';
 //[state, state modify function] = useState()~ 이렇게 해야 재렌더링이 일어남
 function App() {
   let [title, mTitle] = useState(["Should I buy more classes?","React Class Notes",  "My birthday"]);
-  let [date, mDate] = useState(["today","4/26",  "4/13"]);
+  let [date, mDate] = useState(["5/1","4/26",  "4/13"]);
   let [content, mContent] = useState([
     "You bought Codding apple's class, right? Then you are satisfied?",
     "State, Hooks, class, props... Should practice more and more",
@@ -45,6 +45,8 @@ function App() {
             posts = [submitContent, ...content];
             mContent(posts);
             //input과 textarea 에 있는 value값 초기화하는건 어떻게?
+            //array 말고 object로 게시글 하나당 1object로 관리하고싶다
+            //id(key) title date content 이렇게, 그럼 수정기능도 될텐데
           }}>Upload</button>
          </div>
 
@@ -61,6 +63,7 @@ function App() {
 }
 
 function Modal(props){ //component! very useful and 보기좋음! 관리도 편함!
+  //modal에 delete와 modify 기능도 넣어볼 것.
   return (
       <div className="modal_bg">
         <div className="modal_box">
