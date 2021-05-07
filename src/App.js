@@ -37,7 +37,7 @@ function App() {
         <div className="submit-box">
           <input className="submitTitle" type="text" placeholder="title" onChange={ (e) => { mSubmit(e.target.value) }} />
           <textarea className="submitContent" type="text" placeholder="Content" onChange={ (e) => { mSubmitContent(e.target.value) }} />
-          <button onClick={ () => {
+          <button className="uploadBtn" onClick={ () => {
             posts = [submit ,...title];
             mTitle(posts);
             posts = ["now", ...date];
@@ -64,6 +64,7 @@ function App() {
 
 function Modal(props){ //component! very useful and 보기좋음! 관리도 편함!
   //modal에 delete와 modify 기능도 넣어볼 것.
+  //입력은 textarea으로 하는데 띄어쓰기까지 된 텍스트는 어떻게 나타낼 수 있지?
   return (
       <div className="modal_bg">
         <div className="modal_box">
@@ -71,12 +72,17 @@ function Modal(props){ //component! very useful and 보기좋음! 관리도 편�
             <span className="modal__title"> {props.title[props.postNum]} </span>
             <span className="modal__date"> {props.date[props.postNum]} </span>
           </div>
-          <span className="modal__content"> {props.content[props.postNum]} </span>
+          <p className="modal__content"> {props.content[props.postNum]} </p>
           <div className="modal_close" onClick={ () => { props.mModal(false)} }>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
             </svg>
           </div>
+          <button className="modifyBtn">Modify</button>
+          <button onClick={ () => {
+            //자식이 부모한테 데이터 지우라고 하는 건 어떻게하지?
+            //지우는거나, 수정하는 것.. 둘 다 음...
+          }} className="deleteBtn">Delete</button>
         </div>
       </div>
   );//state값을 여기에 쓰진 못하나?

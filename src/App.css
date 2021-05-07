@@ -79,14 +79,14 @@
 }
 .modal_close{
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -40px;
+  right: -10px;
   padding: 10px;
 }
 .modal_close > svg{
   width: 25px;
   height: 25px;
-  color: #000;
+  color: #fff;
   opacity: .7;
 }
 .submit-box{
@@ -124,4 +124,42 @@
 .submitContent:focus,
 .submitContent:hover{
   border-bottom: 1px solid rgba(0,0,0,.6);
+}
+.modifyBtn,
+.deleteBtn{
+  position: absolute;
+  bottom: 10px;
+  border: 0;
+  outline: 0;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+.modifyBtn{
+  right: 15px;
+  background-color: teal;
+  color: #fff;
+  transition: .2s ease-in-out;
+}
+.modifyBtn:hover,
+.modifyBtn:active{
+  background-color: rgb(0, 77, 77);
+}
+.deleteBtn{
+  right: 90px;
+  background-color: tomato;
+  color: #fff;
+  transition: .2s ease-in-out;
+}
+.deleteBtn:hover,
+.deleteBtn:active{
+  background-color: rgb(192, 51, 26);
+}
+.uploadBtn{
+  border: 0;
+  outline: 0;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: cornflowerblue;
+  color: #fff;
 }
